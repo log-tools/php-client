@@ -51,33 +51,38 @@ class Client {
         return json_decode($resp);
     }
 
-    public function warning(Message $message)
+    public function warning($message)
     {
-        $message->type=Message::TYPE_WARNING;
+        $message = new Message(['message'=>$message]);
+        $message->type = Message::TYPE_WARNING;
         return $this->_send($message);
     }
 
-    public function notice(Message $message)
+    public function notice($message)
     {
-        $message->type=Message::TYPE_NOTICE;
+        $message = new Message(['message'=>$message]);
+        $message->type = Message::TYPE_NOTICE;
         return $this->_send($message);
     }
 
-    public function fatal(Message $message)
+    public function fatal($message)
     {
-        $message->type=Message::TYPE_FATAL;
+        $message = new Message(['message'=>$message]);
+        $message->type = Message::TYPE_FATAL;
         return $this->_send($message);
     }
 
-    public function error(Message $message)
+    public function error($message)
     {
-        $message->type=Message::TYPE_ERROR;
+        $message = new Message(['message'=>$message]);
+        $message->type = Message::TYPE_ERROR;
         return $this->_send($message);
     }
 
-    public function info(Message $message)
+    public function info($message)
     {
-        $message->type=Message::TYPE_INFO;
+        $message = new Message(['message'=>$message]);
+        $message->type = Message::TYPE_INFO;
         return $this->_send($message);
     }
 
